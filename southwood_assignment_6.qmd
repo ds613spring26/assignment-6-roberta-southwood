@@ -70,6 +70,14 @@ dbGetQuery(conn, count_flights_by_carrier)
 
 #### **c.** Find the **average departure delay** (`dep_delay`)
 
+```{r}
+
+average_dept_delay <- "select avg(dep_delay) from flights"
+
+dbGetQuery(conn, average_dept_delay)
+
+```
+
 #### **d.** Find the **top 5 destinations** (`dest`) With the most flights.
 
 -   Your output should include:
@@ -77,6 +85,17 @@ dbGetQuery(conn, count_flights_by_carrier)
     -   destination
 
     -   number of flights Sort from the **largest to smallest**.
+
+```{r}
+
+dest_most_flights <- "select dest, count(dest) from flights
+                      group by dest 
+                      order by count(dest) desc
+                      limit 5"
+
+dbGetQuery(conn, dest_most_flights)
+
+```
 
 #### **e.** Create a table showing:
 
