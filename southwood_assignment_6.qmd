@@ -59,11 +59,11 @@ dbGetQuery(conn, count_flights)
 ```
 
 ```{r}
-
+# SQL command
 count_flights_by_carrier <- "select carrier, count(carrier) 
                 from flights
                 group by carrier"
-
+# run query 
 dbGetQuery(conn, count_flights_by_carrier)
 
 ```
@@ -71,9 +71,10 @@ dbGetQuery(conn, count_flights_by_carrier)
 #### **c.** Find the **average departure delay** (`dep_delay`)
 
 ```{r}
-
+# SQL command
 average_dept_delay <- "select avg(dep_delay) from flights"
 
+# run query
 dbGetQuery(conn, average_dept_delay)
 
 ```
@@ -87,12 +88,13 @@ dbGetQuery(conn, average_dept_delay)
     -   number of flights Sort from the **largest to smallest**.
 
 ```{r}
-
+# SQL command
 dest_most_flights <- "select dest, count(dest) from flights
                       group by dest 
                       order by count(dest) desc
                       limit 5"
 
+# run query
 dbGetQuery(conn, dest_most_flights)
 
 ```
@@ -105,6 +107,63 @@ dbGetQuery(conn, dest_most_flights)
 
 Sort the results from **largest to smallest delay**
 
+```{r}
+# SQL command
+arrival_delay <- "select carrier, avg(arr_delay) from flights
+                  group by carrier 
+                  order by avg(arr_delay) desc"
+
+# run query
+dbGetQuery(conn, arrival_delay)
+
+```
+
 > You must close the connection when you are done. Use `dbDisconnect()`
 
+```{r}
+
+# disconnect connection 
+dbDisconnect(conn)
+dbDisconnect(dbcon)
+
+# check disconnection 
+dbIsValid(conn)
+dbIsValid(dbcon)
+
+```
+
 ## Part 2: Answer the following questions by running SQL using DBeaver with DuckDB  
+
+#### **a.** List the first **10 rows** of the `flights` table
+
+#### **b.** Count the Number of Flights for Each Carrier
+
+Find the **number of flights** for each carrier.
+
+-   Your output should include:
+
+    -   carrier
+
+    -   number of flights Sort from the **largest to smallest**.
+
+#### **c.** Find the **average departure delayby month**
+
+-   Your output should include:
+
+    -   month
+
+    -   average departure delay
+
+#### **d.** Find the **top 10 routes** (`dest`) by:
+
+-   `origin`
+
+-   `dest`
+
+ordered by **number of flights**.
+
+#### **e.** Export the result of part b query to a **CSV file** using the **Export Data** feature in DBeaver.
+
+Submit the exported CSV file along with your homework.
+
+## **Remember to Close the connection When You Are Done**
