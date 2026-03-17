@@ -1,26 +1,45 @@
 ---
-title: "southwood_assignment_6"
+title: "Assignment 6 SQL"
+author: "Roberta Southwood"
 format: html
 editor: visual
 ---
 
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+## Part 1: Answer the following questions by running SQL using RStudio
 
 ```{r}
-1 + 1
+# load required packages 
+
+library(DBI) 
+library(duckdb)
+library(dplyr) 
+library(nycflights13)
 ```
 
-You can add options to executable code like this
+a\. list the first 10 rows of the flights table
 
 ```{r}
-#| echo: false
-2 * 2
+# connect to duckdb
+dbcon <- dbConnect(duckdb::duckdb()) 
+dbcon
+
+# check connection 
+dbIsValid(dbcon)
+
+# connect to flights.duckdb
+url <- "https://data-science-master.github.io/lectures/data/flights.duckdb"
+
+download.file(url, destfile = "./data/flights.duckdb", mode = "wb")
+
+conn <- dbConnect(duckdb(), "./data/flights.duckdb", read_only = TRUE)
+
+# check connection 
+dbIsValid(conn)
+
+# list first 10 rows of flights table 
+dbReadTable(conn, 'flights') %>% 
+  head(10)
+
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+## Part 2: Answer the following questions by running SQL using DBeaver with DuckDB  
