@@ -136,6 +136,8 @@ dbIsValid(dbcon)
 
 #### **a.** List the first **10 rows** of the `flights` table
 
+![](images/Screenshot 2026-03-17 at 11.49.50 AM.png){width="301"}
+
 #### **b.** Count the Number of Flights for Each Carrier
 
 Find the **number of flights** for each carrier.
@@ -145,6 +147,8 @@ Find the **number of flights** for each carrier.
     -   carrier
 
     -   number of flights Sort from the **largest to smallest**.
+
+![](images/Screenshot 2026-03-17 at 11.55.15 AM.png){width="347"}
 
 #### **c.** Find the **average departure delayby month**
 
