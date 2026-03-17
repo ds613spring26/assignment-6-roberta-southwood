@@ -148,7 +148,7 @@ Find the **number of flights** for each carrier.
 
     -   number of flights Sort from the **largest to smallest**.
 
-![](images/Screenshot 2026-03-17 at 11.55.15 AM.png){width="347"}
+![](images/Screenshot 2026-03-17 at 12.05.56 PM.png){width="294"}
 
 #### **c.** Find the **average departure delayby month**
 
@@ -158,6 +158,8 @@ Find the **number of flights** for each carrier.
 
     -   average departure delay
 
+![](images/Screenshot 2026-03-17 at 11.59.06 AM.png){width="282"}
+
 #### **d.** Find the **top 10 routes** (`dest`) by:
 
 -   `origin`
@@ -165,6 +167,8 @@ Find the **number of flights** for each carrier.
 -   `dest`
 
 ordered by **number of flights**.
+
+![](images/Screenshot 2026-03-17 at 12.04.03 PM.png){width="300"}
 
 #### **e.** Export the result of part b query to a **CSV file** using the **Export Data** feature in DBeaver.
 
